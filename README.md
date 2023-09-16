@@ -2,7 +2,7 @@
 
 Hello! 👋 I'm Thraize, a passionate programmer and aspiring Data Scientist, Full-Stack Developer, AI Enthusiast.
 
-![Profile Image](URL to Your Profile Image)
+![Profile Image](https://avatars.githubusercontent.com/u/90985774?v=4)
 
 ## About Me
 
