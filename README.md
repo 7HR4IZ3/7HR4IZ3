@@ -31,7 +31,7 @@ Here are some projects I'm proud of:
 ## Connect with Me
 
 [LinkedIn](https://www.linkedin.com/in/alhassan-abdulazeez-ab5a2827a/)
-<!-- [![Twitter](Twitter Icon URL)](Link to Your Twitter Profile) -->
+[![Twitter](Twitter Icon URL)](https://x.com/IamThraize)
 <!-- [![Personal Website/Blog](Website Icon URL)](Link to Your Website/Blog) -->
 [Email](gamerxville@gmail.com)
 
@@ -45,4 +45,4 @@ Feel free to connect with me, I'm always open to interesting discussions and col
 
 <!-- A quote or something personal that reflects your programming philosophy -->
 
-> "Quote that resonates with your approach to programming."
+> "Don't comment bad code – rewrite it!"
