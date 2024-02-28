@@ -31,7 +31,7 @@ Here are some projects I'm proud of:
 ## Connect with Me
 
 [LinkedIn](https://www.linkedin.com/in/alhassan-abdulazeez-ab5a2827a/)
-[![Twitter](Twitter Icon URL)](https://x.com/IamThraize)
+[[Twitter](https://x.com/favicon.ico)](https://x.com/IamThraize)
 <!-- [![Personal Website/Blog](Website Icon URL)](Link to Your Website/Blog) -->
 [Email](gamerxville@gmail.com)
 
