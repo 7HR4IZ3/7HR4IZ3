@@ -6,7 +6,7 @@ Hello! 👋 I'm Thraize, a passionate programmer and aspiring Data Scientist, Fu
 
 ## About Me
 
-I'm an 18 year old Nigerian programmer with a love for C Family, Python, Javascript. I ~~enjoy tackling challenging problems, learning new concepts~~ breaking and fixing things, and building innovative projects.
+I'm an 18 year old Nigerian programmer with a love for C Family, Python, Javascript. I ~~enjoy tackling challenging problems and learning new concepts~~ breaking and fixing things while building innovative projects.
 
 - 🔭 I'm currently working on [Acode NodeJS](https://github.com/7HR4IZ3/Acode) - Fork of [Acode](https://github.com/deadlyjack/Acode), VSCode for mobile.
 - 🌱 I'm currently learning Rust programming language and integrating it into my projects.
