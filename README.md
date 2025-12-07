@@ -22,7 +22,7 @@ I'm an 18-year-old Nigerian coder who loves diving deep into programming and tec
   Mastering Rust to broaden my toolset and improve my project robustness.
   
 - 💬 **Ask Me About:**  
-  Python, Backend Development, REST API Integrations, and more.
+  Typescript, Python, FullStack Development, REST API Integrations, and more.
 
 ---
 
