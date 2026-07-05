@@ -1,3 +1,14 @@
+
+<div align="center">
+  <a href="https://commit-history.com/7HR4IZ3">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://commit-history.com/embed/7HR4IZ3?theme=dark" />
+      <img alt="7HR4IZ3's commit history" src="https://commit-history.com/embed/7HR4IZ3" />
+    </picture>
+  </a>
+</div>
+
+
 # Hi, I'm Thraize! 👋
 
 **Passionate Programmer | Aspiring Data Scientist & Full-Stack Developer | AI Enthusiast**
