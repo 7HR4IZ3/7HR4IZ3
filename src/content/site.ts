@@ -7,7 +7,7 @@ export const siteConfig = {
   availability: "Open to full-stack roles, startup collaborations, and selected freelance work.",
   description:
     "Full-stack engineer building unusual, useful software across AI tools, mobile runtimes, native products, and modern web platforms.",
-  url: "https://thraize.dev",
+  url: "https://thraize.vercel.app",
   contact: {
     email: "gamerxville@gmail.com",
     github: "https://github.com/7HR4IZ3",

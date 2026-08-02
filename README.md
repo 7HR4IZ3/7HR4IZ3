@@ -35,7 +35,7 @@ My earlier open-source work includes [Acode](https://github.com/7HR4IZ3/Acode), 
 
 ## This repository
 
-This profile repository also contains the source for **THRAIZE — The Agent Workbench**, my procedural 3D portfolio. The workbench turns each flagship project into an isolated visual workspace while the semantic interface documents ownership, architecture, difficult decisions, and current proof.
+This profile repository also contains the source for **[THRAIZE — The Agent Workbench](https://thraize.vercel.app)**, my procedural 3D portfolio. The workbench turns each flagship project into an isolated visual workspace while the semantic interface documents ownership, architecture, difficult decisions, and current proof.
 
 ```bash
 bun install
