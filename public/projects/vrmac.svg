@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#080907"/>
+  <g stroke="#777963" stroke-opacity=".34" fill="none">
+    <path d="M0 720 600 350 1200 720M0 590 600 350 1200 590M0 490 600 350 1200 490M0 410 600 350 1200 410"/>
+    <path d="M120 720 600 350 1080 720M300 720 600 350 900 720M470 720 600 350 730 720"/>
+    <path d="M0 0 600 350 1200 0M600 0v350" stroke-opacity=".18"/>
+  </g>
+  <g transform="translate(245 126) skewY(-2)">
+    <rect x="18" y="22" width="720" height="430" fill="#050504"/>
+    <rect width="720" height="430" fill="#24241f" stroke="#777963" stroke-width="3"/>
+    <rect x="16" y="16" width="688" height="370" fill="#d2c8b5"/>
+    <rect x="16" y="386" width="688" height="28" fill="#171713"/>
+    <path d="M32 52h656" stroke="#171713" stroke-width="2"/>
+    <text x="34" y="41" fill="#171713" font-family="ui-monospace,monospace" font-size="14" font-weight="700">VRMac Host</text>
+    <text x="682" y="41" fill="#171713" font-family="ui-monospace,monospace" font-size="12" text-anchor="end">DISPLAY 0 · LIVE</text>
+    <rect x="180" y="92" width="360" height="210" fill="#f0e9dd" stroke="#171713" stroke-width="3"/>
+    <rect x="190" y="102" width="360" height="210" fill="#ef5b2a"/>
+    <rect x="180" y="92" width="360" height="210" fill="#f0e9dd" stroke="#171713" stroke-width="3"/>
+    <path d="M180 132h360" stroke="#171713" stroke-width="2"/>
+    <text x="198" y="119" fill="#171713" font-family="ui-monospace,monospace" font-size="13" font-weight="700">WORLD-ANCHORED DESKTOP</text>
+    <text x="198" y="177" fill="#171713" font-family="system-ui,sans-serif" font-size="21">Mac display capture transported</text>
+    <text x="198" y="207" fill="#171713" font-family="system-ui,sans-serif" font-size="21">into a spatial Android frame.</text>
+    <g fill="#777963"><rect x="330" y="394" width="14" height="14"/><rect x="352" y="394" width="14" height="14" fill="#ef5b2a"/><rect x="374" y="394" width="14" height="14"/></g>
+  </g>
+  <circle cx="600" cy="350" r="6" fill="none" stroke="#ef5b2a" stroke-width="2"/><circle cx="600" cy="350" r="18" fill="none" stroke="#ef5b2a" stroke-opacity=".25"/>
+  <rect x="34" y="34" width="350" height="42" fill="#11110e" stroke="#777963"/><text x="52" y="61" fill="#a9aa8e" font-family="ui-monospace,monospace" font-size="14">SCREEN CAPTURE KIT → WEBRTC / H264</text>
+  <rect x="824" y="644" width="342" height="42" fill="#11110e" stroke="#777963"/><text x="1148" y="671" fill="#ef5b2a" font-family="ui-monospace,monospace" font-size="14" text-anchor="end">CARDBOARD · PASSTHROUGH · AR</text>
+</svg>

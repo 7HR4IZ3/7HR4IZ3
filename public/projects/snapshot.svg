@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#0b0b09"/>
+  <rect x="36" y="36" width="1128" height="648" fill="#12120f" stroke="#39392f" stroke-width="2"/>
+  <path d="M36 88h1128" stroke="#39392f"/>
+  <text x="58" y="70" fill="#ef5b2a" font-family="ui-monospace,monospace" font-size="15" font-weight="700">SNAPSHOT</text>
+  <text x="1140" y="70" fill="#83846c" font-family="ui-monospace,monospace" font-size="13" text-anchor="end">PARALLEL WORKSPACE CONTROL</text>
+  <g font-family="ui-monospace,monospace" font-size="20">
+    <text x="70" y="132" fill="#ef5b2a">$ <tspan fill="#d9d2c4">snapshot list .</tspan></text>
+    <text x="70" y="184" fill="#83846c">WORKSPACE</text><text x="410" y="184" fill="#83846c">AGENT</text><text x="620" y="184" fill="#83846c">STATE</text><text x="830" y="184" fill="#83846c">BASE</text>
+    <text x="70" y="224" fill="#d9d2c4">auth-recovery</text><text x="410" y="224" fill="#d9d2c4">codex-01</text><text x="620" y="224" fill="#b8bf91">ready</text><text x="830" y="224" fill="#d9d2c4">4b7a9e2</text>
+    <text x="70" y="260" fill="#d9d2c4">merge-guard</text><text x="410" y="260" fill="#d9d2c4">codex-02</text><text x="620" y="260" fill="#b8bf91">reviewed</text><text x="830" y="260" fill="#d9d2c4">4b7a9e2</text>
+    <text x="70" y="296" fill="#d9d2c4">mobile-shell</text><text x="410" y="296" fill="#d9d2c4">codex-03</text><text x="620" y="296" fill="#b8bf91">ready</text><text x="830" y="296" fill="#d9d2c4">4b7a9e2</text>
+    <text x="70" y="362" fill="#ef5b2a">$ <tspan fill="#d9d2c4">snapshot merge-many . --from 3-workspaces --preflight</tspan></text>
+    <text x="70" y="418" fill="#83846c">preflight</text><text x="350" y="418" fill="#d9d2c4">3 workspaces</text>
+    <text x="70" y="456" fill="#83846c">conflicts</text><text x="350" y="456" fill="#b8bf91">0</text>
+    <text x="70" y="494" fill="#83846c">deterministic plan</text><text x="350" y="494" fill="#b8bf91">ready</text>
+    <text x="70" y="532" fill="#83846c">recovery point</text><text x="350" y="532" fill="#d9d2c4">merge-session-018</text>
+    <text x="70" y="600" fill="#ef5b2a">$ <tspan fill="#83846c">_</tspan></text>
+  </g>
+</svg>

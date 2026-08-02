@@ -1,4 +1,3 @@
-
 <div align="center">
   <a href="https://commit-history.com/7HR4IZ3">
     <picture>
@@ -8,93 +7,57 @@
   </a>
 </div>
 
+# Hi, I'm Thraize 👋
 
-# Hi, I'm Thraize! 👋
+**Full Stack Engineer · Mobile systems, AI developer tools, native products, and cross-platform infrastructure**
 
-**Passionate Programmer | Aspiring Data Scientist & Full-Stack Developer | AI Enthusiast**
+I’m Alhassan Abdulazeez, a systems-minded product engineer in Nigeria. I build software for ideas that do not fit a template—especially products that need browsers, native runtimes, agents, devices, and cloud services to behave like one coherent system.
 
-![Profile Image](https://avatars.githubusercontent.com/u/90985774?v=4)
----
+> “Don’t comment bad code—rewrite it.”
 
-## Programming Philosophy
+## What I’m building
 
-> "Don't comment bad code – rewrite it!"
+- **Kaizen Code** — a mobile workspace for project-aware coding agents, native runtimes, terminal sessions, permission controls, diffs, and external file handoff.
+- **[Snapshot](https://github.com/7HR4IZ3/snapshot)** — controlled parallel AI workspaces with review, deterministic merges, and recovery workflows.
+- **VRMac** — a Mac display transported into a world-anchored Android VR, passthrough, and AR environment.
+- **[Motion Cues](https://github.com/7HR4IZ3/VehicleMotionCues)** — a native Android sensor overlay designed to remain useful above other applications without blocking them.
+- **[OpenCode Annotate](https://github.com/7HR4IZ3/opencode-annotate)** — browser feedback routed with its original visual context into the coding-agent session that owns it.
+- **[Stackjet](https://github.com/7HR4IZ3/google-drive-uploader)** — remote files streamed directly into cloud storage without using the user’s device as a temporary warehouse.
 
----
+My earlier open-source work includes [Acode](https://github.com/7HR4IZ3/Acode), [WSGIC](https://github.com/7HR4IZ3/wsgic), [Py Bridge](https://github.com/7HR4IZ3/py_bridge), [JS Bridge](https://github.com/7HR4IZ3/js_bridge), [Sqlite DB](https://github.com/7HR4IZ3/Sqlite-DB), and [VvvebJS Plus](https://github.com/7HR4IZ3/vvvebjs-plus).
 
-## About Me
+## Experience
 
-I'm an 18-year-old Nigerian coder who loves diving deep into programming and technology. My journey is all about breaking and fixing things, innovating with code, and building projects that make a difference. Currently, I'm expanding my horizons by exploring Rust and integrating it with my existing projects.
+- Lead Engineer at **CheckAroundMe**
+- Former Software Engineer at **Lunary.ai**
+- Top Rated freelancer on **Upwork**
+- Engineering student at the **University of Benin**
 
-- 🔭 **Current Project:**  
-  Working on [Acode NodeJS](https://github.com/7HR4IZ3/Acode) – a fork of [Acode](https://github.com/deadlyjack/Acode). It’s essentially bringing the power of VSCode to mobile with a built-in NodeJS runtime and extended plugin API.
-  
-- 🌱 **Learning:**  
-  Mastering Rust to broaden my toolset and improve my project robustness.
-  
-- 💬 **Ask Me About:**  
-  Typescript, Python, FullStack Development, REST API Integrations, and more.
+## This repository
 
----
+This profile repository also contains the source for **THRAIZE — The Agent Workbench**, my procedural 3D portfolio. The workbench turns each flagship project into an isolated visual workspace while the semantic interface documents ownership, architecture, difficult decisions, and current proof.
 
-## Tech Stack & Skills
+```bash
+bun install
+bun run dev
+```
 
-**Languages:**  
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=java&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white)
+Release checks:
 
----
+```bash
+bun run lint
+bun run typecheck
+bun test
+bun run build
+bun run test:e2e
+```
 
-## Featured Projects
+The site uses Next.js App Router, TypeScript, React Three Fiber, Drei, Three.js, Motion, handcrafted CSS, and the Recursive variable typeface.
 
-Here are a few projects that I'm most proud of:
-
-1. **[Acode NodeJS](https://github.com/7HR4IZ3/Acode)**  
-   *A fork of Acode with an integrated NodeJS runtime and extended plugin API – aiming to be the VSCode for mobile!*
-   
-2. **[Py Bridge](https://github.com/7HR4IZ3/py_bridge)**  
-   *A Python library that lets you interoperate with different programming languages.*
-
-3. **[JS Bridge](https://github.com/7HR4IZ3/js_bridge)**  
-   *A JavaScript library designed to harness the power of multiple programming languages with ease.*
-
-4. **[Comic Downloader](https://github.com/7HR4IZ3/comic-downloader)**  
-   *A mobile app crafted for downloading comics from platforms like [ReadComicOnline](https://readcomiconline.li).*
-
-5. **[WSGIC](https://github.com/7HR4IZ3/wsgic)**  
-   *A next-generation web framework for Python, supporting both WSGI and ASGI for backend and frontend development.*
-
-6. **[Sqlite DB](https://github.com/7HR4IZ3/Sqlite-DB)**  
-   *A SQLite3 ORM inspired by Django’s ORM, optimized for simplicity and efficiency.*
-
-7. **[VvvebJS](https://github.com/7HR4IZ3/vvvebjs-plus)**  
-   *A visual UI builder designed for modern frontend development.*
-
----
-
-## Connect with Me
-
-I'm always open to discussions, collaborations, and new ideas! Let's connect:
+## Connect
 
 - [LinkedIn](https://www.linkedin.com/in/alhassan-abdulazeez-ab5a2827a/)
-- [Twitter](https://x.com/IamThraize)
+- [X / Twitter](https://x.com/iamthraize)
 - [Email](mailto:gamerxville@gmail.com)
 
-*Feel free to reach out to chat or collaborate on exciting projects!*
-
----
-
-## GitHub Stats
-
-![Thraize's GitHub Stats](https://github-readme-stats.vercel.app/api?username=7HR4IZ3&show_icons=true&theme=radical)
-
-
----
-
-*Thanks for stopping by my profile. Happy coding!*
-
+I’m available for products that need careful engineering across platform boundaries.
