@@ -15,7 +15,7 @@ export function SiteFooter() {
         <a href={siteConfig.contact.upwork} target="_blank" rel="noreferrer">Upwork</a>
         <a href={siteConfig.contact.x} target="_blank" rel="noreferrer">X</a>
         <Link href="/work">Work</Link>
-        <Link href="/demo/ink-blueprint">Blueprint demo</Link>
+        <Link href="/showcase/ink-blueprint">Blueprint field</Link>
       </nav>
     </footer>
   );

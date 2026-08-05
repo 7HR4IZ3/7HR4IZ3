@@ -90,10 +90,18 @@ test("reduced motion keeps content and the workbench path", async ({ page }) => 
   await expect(page.getByRole("link", { name: /See what I build/i })).toBeVisible();
 });
 
-test("ink blueprint demo renders the real evidence field", async ({ page }) => {
-  await page.goto("/demo/ink-blueprint");
-  await expect(page.getByRole("heading", { level: 1, name: /Draw the system before you build it/i })).toBeVisible();
+test("ink blueprint showcase renders the field and build register", async ({ page }) => {
+  await page.goto("/showcase/ink-blueprint");
+  await expect(page.getByRole("heading", { level: 1, name: /Turn the work into a field/i })).toBeVisible();
   await expect(page.locator(".blueprint-field")).toBeVisible();
   await expect(page.locator(".blueprint-plate")).toHaveCount(6);
-  await expect(page.getByRole("link", { name: /Return to Signal Cartography/i })).toHaveAttribute("href", "/");
+  await expect(page.locator(".blueprint-showcase__register li")).toHaveCount(6);
+  await expect(page.getByRole("link", { name: /Back to Signal Cartography/i })).toHaveAttribute("href", "/");
+  await expect(page.getByRole("link", { name: /Open the VRMac build record/i })).toHaveAttribute("href", "/work/vrmac");
+});
+
+test("the old blueprint demo URL forwards to the full showcase", async ({ page }) => {
+  await page.goto("/demo/ink-blueprint");
+  await expect(page).toHaveURL(/\/showcase\/ink-blueprint$/);
+  await expect(page.getByRole("heading", { level: 1, name: /Turn the work into a field/i })).toBeVisible();
 });

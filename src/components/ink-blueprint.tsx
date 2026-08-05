@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, type PointerEvent } from "react";
 import { featuredProjectEvidence, featuredProjects } from "@/content/projects";
 
@@ -32,12 +33,15 @@ export function InkBlueprint() {
       </div>
       {featuredProjectEvidence.map((media, index) => {
         const project = featuredProjects[index];
+        if (!project) return null;
         return (
           <figure className={`blueprint-plate blueprint-plate--${index + 1}`} key={media.src}>
-            <div className="blueprint-plate__frame">
-              <Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width: 680px) 60vw, 24vw" />
-            </div>
-            <figcaption><strong>{project?.shortTitle ?? media.slug}</strong><span>{project?.domains.join(" / ")}</span></figcaption>
+            <Link className="blueprint-plate__link" href={`/work/${project.slug}`} aria-label={`Open the ${project.title} build record`}>
+              <div className="blueprint-plate__frame">
+                <Image src={media.src} alt={media.alt} width={media.width} height={media.height} sizes="(max-width: 680px) 60vw, 24vw" />
+              </div>
+            </Link>
+            <figcaption><strong>{project.shortTitle}</strong><span>{project.domains.join(" / ")}</span></figcaption>
           </figure>
         );
       })}
