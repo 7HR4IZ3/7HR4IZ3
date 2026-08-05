@@ -29,7 +29,7 @@ My earlier open-source work includes [Acode](https://github.com/7HR4IZ3/Acode), 
 ## Experience
 
 - Lead Engineer at **CheckAroundMe**
-- Former Software Engineer at **Lunary.ai**
+- Software Engineer at **Lunary.ai**
 - Top Rated freelancer on **Upwork**
 - Engineering student at the **University of Benin**
 
