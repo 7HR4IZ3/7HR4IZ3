@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#11110e"/><rect x="36" y="36" width="1128" height="648" fill="#171713" stroke="#676858"/>
+  <text x="64" y="82" fill="#ef5b2a" font-family="ui-monospace,monospace" font-size="20" font-weight="700">SNAPSHOT / BACKEND INSPECTION</text>
+  <g fill="#e6dfd2" font-family="ui-monospace,monospace" font-size="21"><text x="64" y="144">$ snapshot backends ./Snapshot</text><text x="64" y="204">Host platform: darwin</text><text x="64" y="254">worktree: available</text><text x="64" y="294">apfs-cow: available (cp -cR succeeded)</text><text x="64" y="334">overlay: unavailable (Linux-only auto-detection)</text><text x="64" y="398" fill="#ef5b2a">Suggested default backend: apfs-cow</text><text x="64" y="454">Workspace counts: worktree=0  apfs-cow=0  overlay=0</text><text x="64" y="612" fill="#9b9c83" font-size="15">Captured from the working Snapshot CLI</text></g>
+</svg>

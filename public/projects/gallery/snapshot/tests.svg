@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#11110e"/><rect x="36" y="36" width="1128" height="648" fill="#171713" stroke="#676858"/>
+  <text x="64" y="82" fill="#ef5b2a" font-family="ui-monospace,monospace" font-size="20" font-weight="700">SNAPSHOT / MILESTONE TEST</text>
+  <g fill="#e6dfd2" font-family="ui-monospace,monospace" font-size="21"><text x="64" y="144">$ bun test test/milestone1.test.ts</text><text x="64" y="216">bun test v1.3.13</text><text x="64" y="282" fill="#9b9c83">snapshot milestone1</text><text x="86" y="326">✓ init, spawn, status, diff flow</text><text x="64" y="402" fill="#ef5b2a">1 pass</text><text x="196" y="402">0 fail</text><text x="64" y="450">20 expect() calls</text><text x="64" y="612" fill="#9b9c83" font-size="15">Captured from the local test runner</text></g>
+</svg>

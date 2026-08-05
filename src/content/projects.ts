@@ -34,6 +34,7 @@ export type Project = {
   links: { label: string; href: string }[];
   module: ProjectModule;
   media?: ProjectMedia;
+  gallery?: ProjectMedia[];
 };
 
 export const projects: Project[] = [
@@ -49,6 +50,13 @@ export const projects: Project[] = [
     lessons: "A mobile-first tool becomes clearer when it stops copying the desktop and gives the host explicit authority over every agent capability.",
     stack: ["Bun", "TypeScript", "Preact", "Capacitor", "Kotlin", "Swift", "Alpine", "ACP"], links: [], module: "kaizen",
     media: { src: "/projects/kaizen-code.png", alt: "Kaizen Code mobile workspace selection screen", kind: "product-capture", width: 390, height: 844, approved: true },
+    gallery: [
+      { src: "/projects/gallery/kaizen/session-overview.png", alt: "Kaizen Code session overview on a mobile device", kind: "product-capture", width: 828, height: 1792, approved: true },
+      { src: "/projects/gallery/kaizen/agent-thread.png", alt: "Kaizen Code agent thread with task context", kind: "product-capture", width: 828, height: 1792, approved: true },
+      { src: "/projects/gallery/kaizen/task-list.png", alt: "Kaizen Code parallel task list on mobile", kind: "product-capture", width: 828, height: 1792, approved: true },
+      { src: "/projects/gallery/kaizen/workspace-detail.png", alt: "Kaizen Code workspace detail and agent response", kind: "product-capture", width: 828, height: 1792, approved: true },
+      { src: "/projects/gallery/kaizen/terminal-session.png", alt: "Kaizen Code terminal session inside the mobile workspace", kind: "terminal-capture", width: 828, height: 1792, approved: true },
+    ],
   },
   {
     slug: "snapshot", index: "02", title: "Snapshot", shortTitle: "Snapshot", premise: "Controlled parallel workspaces for AI coding agents, with explicit review, deterministic merges, and recovery.",
@@ -62,6 +70,12 @@ export const projects: Project[] = [
     lessons: "Acceleration is only useful when a person can still understand, approve, reject, and undo the result.",
     stack: ["Bun", "TypeScript", "Git", "APFS", "TUI"], links: [{ label: "Source", href: "https://github.com/7HR4IZ3/snapshot" }], module: "snapshot",
     media: { src: "/projects/snapshot.svg", alt: "Snapshot terminal preflight and parallel workspace capture", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+    gallery: [
+      { src: "/projects/gallery/snapshot/cli-help.svg", alt: "Snapshot CLI help output listing workspace commands", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/snapshot/backends.svg", alt: "Snapshot backend inspection output from the local CLI", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/snapshot/tests.svg", alt: "Snapshot milestone test output showing the init spawn status diff flow", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/snapshot/status.svg", alt: "Snapshot safe failure output for an uninitialized project", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+    ],
   },
   {
     slug: "vrmac", index: "03", title: "VRMac", shortTitle: "VRMac", premise: "A Mac display transported into a world-anchored Android VR, passthrough, and AR environment.",
@@ -75,6 +89,12 @@ export const projects: Project[] = [
     lessons: "Cross-device experiences feel convincing only when transport, interaction, and spatial math are designed as one continuous system.",
     stack: ["Swift", "ScreenCaptureKit", "WebRTC", "Kotlin", "OpenGL ES", "ARCore"], links: [], module: "vrmac",
     media: { src: "/projects/vrmac.svg", alt: "VRMac world-anchored desktop architecture capture", kind: "architecture-capture", width: 1200, height: 720, approved: true },
+    gallery: [
+      { src: "/projects/gallery/vrmac/simulator-live.jpeg", alt: "Live iPhone simulator capture of the VRMac spatial display", kind: "product-capture", width: 712, height: 472, approved: true },
+      { src: "/projects/gallery/vrmac/protocol.svg", alt: "VRMac host to mobile session protocol evidence sheet", kind: "architecture-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/vrmac/build-receipt.svg", alt: "VRMac host and client build receipt", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/vrmac/simulator-state.svg", alt: "VRMac simulator state evidence plate", kind: "product-capture", width: 1200, height: 720, approved: true },
+    ],
   },
   {
     slug: "motion-cues", index: "04", title: "Motion Cues", shortTitle: "Motion", premise: "A native Android overlay that turns vehicle movement into a quiet visual reference above other applications.",
@@ -88,6 +108,13 @@ export const projects: Project[] = [
     lessons: "A system-level product can require deep engineering while its successful interface remains almost invisible.",
     stack: ["Kotlin", "Android Views", "Sensors", "Foreground service", "Play Billing"], links: [{ label: "Source", href: "https://github.com/7HR4IZ3/VehicleMotionCues" }], module: "motion",
     media: { src: "/projects/motion-cues.png", alt: "Motion Cues Android release screen showing the overlay controls and dots", kind: "product-capture", width: 540, height: 960, approved: true },
+    gallery: [
+      { src: "/projects/gallery/motion/current.png", alt: "Motion Cues current state screen from the Android release capture", kind: "product-capture", width: 720, height: 1480, approved: true },
+      { src: "/projects/gallery/motion/dots.png", alt: "Motion Cues dot field preview from the Android release capture", kind: "product-capture", width: 720, height: 1480, approved: true },
+      { src: "/projects/gallery/motion/motion.png", alt: "Motion Cues motion profile screen from the Android release capture", kind: "product-capture", width: 720, height: 1480, approved: true },
+      { src: "/projects/gallery/motion/system.png", alt: "Motion Cues system controls screen from the Android release capture", kind: "product-capture", width: 720, height: 1480, approved: true },
+      { src: "/projects/gallery/motion/onboarding-overlay.png", alt: "Motion Cues overlay onboarding screen from the Android release capture", kind: "product-capture", width: 720, height: 1480, approved: true },
+    ],
   },
   {
     slug: "opencode-annotate", index: "05", title: "OpenCode Annotate", shortTitle: "Annotate", premise: "Select an interface in the browser and route that exact feedback into the coding-agent session that owns it.",
@@ -101,6 +128,11 @@ export const projects: Project[] = [
     lessons: "Feedback becomes substantially more actionable when transport preserves where it came from and who owns the response.",
     stack: ["Bun", "TypeScript", "WebSocket", "OpenCode", "html2canvas"], links: [{ label: "Source", href: "https://github.com/7HR4IZ3/opencode-annotate" }], module: "annotate",
     media: { src: "/projects/opencode-annotate.png", alt: "OpenCode Annotate browser comment routed from a selected interface", kind: "product-capture", width: 1280, height: 800, approved: true },
+    gallery: [
+      { src: "/projects/gallery/annotate/protocol.svg", alt: "OpenCode Annotate browser to relay to agent routing evidence", kind: "architecture-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/annotate/test-flow.svg", alt: "OpenCode Annotate local test page fixture with selectable UI elements", kind: "product-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/annotate/build-receipt.svg", alt: "OpenCode Annotate package boundary evidence sheet", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+    ],
   },
   {
     slug: "stackjet", index: "06", title: "Stackjet", shortTitle: "Stackjet", premise: "A remote file URL travels directly into cloud storage without using the person's device as a temporary warehouse.",
@@ -114,6 +146,11 @@ export const projects: Project[] = [
     lessons: "Removing one unnecessary hop can reshape an entire product architecture and make the result more useful on mobile hardware.",
     stack: ["Next.js", "TypeScript", "Convex", "OAuth", "Google Drive API"], links: [{ label: "Source · DriveUploader", href: "https://github.com/7HR4IZ3/google-drive-uploader" }], module: "stackjet",
     media: { src: "/projects/stackjet.svg", alt: "Stackjet URL-to-cloud-storage product interface capture", kind: "product-capture", width: 1200, height: 720, approved: true },
+    gallery: [
+      { src: "/projects/gallery/stackjet/surface.svg", alt: "Stackjet remote storage control surface", kind: "product-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/stackjet/architecture.svg", alt: "Stackjet source to Convex job to Drive transfer path", kind: "architecture-capture", width: 1200, height: 720, approved: true },
+      { src: "/projects/gallery/stackjet/checks.svg", alt: "Stackjet current proof and implementation checks", kind: "terminal-capture", width: 1200, height: 720, approved: true },
+    ],
   },
   {
     slug: "acode-beyond-android", index: "07", title: "Acode Beyond Android", shortTitle: "Acode", premise: "Platform contribution work carrying an Android-shaped mobile editor into iOS runtimes, filesystems, and terminals.",

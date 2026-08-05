@@ -67,8 +67,18 @@ export function MachineStage() {
     };
     const observer = new IntersectionObserver(syncChapter, { threshold: [0, 0.15, 0.5, 1] });
     elements.forEach((element) => observer.observe(element));
+    let scrollFrame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(syncChapter);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     syncChapter();
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(scrollFrame);
+    };
   }, [progress]);
 
   useEffect(() => {

@@ -26,6 +26,17 @@ describe("project content", () => {
     }
   });
 
+  it("keeps a multi-angle evidence set for every flagship", () => {
+    for (const project of featuredProjects) {
+      expect(project.gallery?.length ?? 0).toBeGreaterThanOrEqual(3);
+      for (const media of project.gallery ?? []) {
+        expect(media.approved).toBe(true);
+        expect(media.src).toMatch(/^\/projects\/.*\.(?:png|jpe?g|svg)$/);
+        expect(media.alt.length).toBeGreaterThan(20);
+      }
+    }
+  });
+
   it("requires complete case-study content", () => {
     for (const project of projects) {
       expect(project.title.length).toBeGreaterThan(1);

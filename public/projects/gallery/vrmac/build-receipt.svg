@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#0d0e0b"/><rect x="44" y="44" width="1112" height="632" fill="#151612" stroke="#686b5c"/>
+  <text x="72" y="92" fill="#ef5b2a" font-family="ui-monospace,monospace" font-size="20" font-weight="700">VRMAC / BUILD RECEIPT</text><g fill="#e6dfd2" font-family="ui-monospace,monospace" font-size="21"><text x="72" y="166">HOST      Swift package</text><text x="72" y="218">CLIENT    Android debug APK</text><text x="72" y="270">RENDER    OpenGL ES / ARCore</text><text x="72" y="322">CONTROL   gaze placement + world anchors</text><text x="72" y="400" fill="#ef5b2a">STATUS    both targets build</text><text x="72" y="448" fill="#9b9c83">end-to-end hardware validation remains explicit</text><text x="72" y="610" fill="#9b9c83" font-size="15">Build facts transcribed from VRMac progress notes</text></g>
+</svg>

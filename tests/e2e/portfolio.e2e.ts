@@ -18,6 +18,12 @@ test("the workbench evidence assets are deployable", async ({ request }) => {
     "/projects/opencode-annotate.png",
     "/projects/stackjet.svg",
     "/blueprint/ink-field.png",
+    "/projects/gallery/kaizen/session-overview.png",
+    "/projects/gallery/snapshot/cli-help.svg",
+    "/projects/gallery/vrmac/simulator-live.jpeg",
+    "/projects/gallery/motion/current.png",
+    "/projects/gallery/annotate/protocol.svg",
+    "/projects/gallery/stackjet/surface.svg",
   ];
 
   for (const asset of assets) {
@@ -39,8 +45,19 @@ test("scroll position selects the matching project evidence", async ({ page }) =
     ["#project-stackjet", "7", "STACKJET"],
   ] as const;
 
+  await page.waitForFunction(() => Array.from(document.images).every((image) => image.complete));
   for (const [selector, chapter, project] of chapters) {
-    await page.evaluate((target) => document.querySelector(target)?.scrollIntoView(), selector);
+    await page.evaluate((target) => {
+      const element = document.querySelector<HTMLElement>(target);
+      if (element) {
+        const top = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: Math.max(0, top - window.innerHeight * 0.3), behavior: "instant" });
+      }
+    }, selector);
+    await page.waitForFunction(({ expectedChapter, expectedProject }) => {
+      const stage = document.querySelector<HTMLElement>(".machine-stage");
+      return stage?.dataset.chapter === expectedChapter && stage?.dataset.project === expectedProject;
+    }, { expectedChapter: chapter, expectedProject: project });
     await expect(stage).toHaveAttribute("data-chapter", chapter);
     await expect(stage).toHaveAttribute("data-project", project);
   }
@@ -54,7 +71,7 @@ test("mobile navigation opens with keyboard focus", async ({ page }, testInfo) =
     const navigation = page.getByRole("navigation", { name: "Primary navigation" });
     await expect(navigation).toBeVisible();
     await expect(menu).toBeFocused();
-    await menu.press("Enter");
+    await page.keyboard.press("Enter");
     await expect(page.getByRole("navigation", { name: "Primary navigation" })).toBeHidden();
   } else {
     await expect(page.getByRole("navigation", { name: "Primary navigation" })).toBeVisible();
@@ -64,8 +81,9 @@ test("mobile navigation opens with keyboard focus", async ({ page }, testInfo) =
 test("featured project has a direct static route and complete narrative", async ({ page }) => {
   await page.goto("/work/vrmac");
   await expect(page.getByRole("heading", { level: 1, name: "VRMac" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "The work, not a mockup." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Read the build from several angles." })).toBeVisible();
   await expect(page.getByRole("img", { name: /world-anchored desktop architecture capture/i })).toBeVisible();
+  await expect(page.locator(".case-gallery__item")).toHaveCount(5);
   await expect(page.getByText(/SPATIAL ↔ NATIVE ↔ MOBILE/)).toBeVisible();
   await expect(page.getByRole("heading", { name: "Current proof" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "What this build changed." })).toBeVisible();

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#11110e"/><rect x="36" y="36" width="1128" height="648" fill="#171713" stroke="#676858"/>
+  <text x="64" y="82" fill="#ef5b2a" font-family="ui-monospace,monospace" font-size="20" font-weight="700">SNAPSHOT / SAFE FAILURE</text>
+  <g fill="#e6dfd2" font-family="ui-monospace,monospace" font-size="21"><text x="64" y="144">$ snapshot status ./Snapshot</text><text x="64" y="222" fill="#ef5b2a">ERR_PROJECT_NOT_INITIALIZED</text><text x="64" y="270">could not find initialized snapshot project</text><text x="64" y="318">from the current directory</text><text x="64" y="408" fill="#9b9c83">The CLI reports the missing state instead of guessing.</text><text x="64" y="612" fill="#9b9c83" font-size="15">Captured from the local Snapshot CLI</text></g>
+</svg>

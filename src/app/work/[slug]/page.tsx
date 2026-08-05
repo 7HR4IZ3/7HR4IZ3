@@ -22,6 +22,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const currentIndex = projects.findIndex((item) => item.slug === project.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
   const publicSource = project.links.find((link) => link.href.includes("github.com"));
+  const evidence = [project.media, ...(project.gallery ?? [])].filter((item, index, all): item is NonNullable<typeof item> => Boolean(item) && all.findIndex((candidate) => candidate?.src === item?.src) === index).slice(0, 5);
   const jsonLd = {
     "@context": "https://schema.org", "@type": "CreativeWork", name: project.title, description: project.premise,
     dateCreated: project.year, creator: { "@type": "Person", name: siteConfig.name, alternateName: [siteConfig.alias, siteConfig.handle] },
@@ -30,39 +31,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <PageShell>
       <article className="case-study">
-        <header className="case-hero">
+        <header className="case-hero case-hero--reframed">
           <div className="case-hero__meta"><span>BUILD RECORD {project.index}</span><span>{project.status}</span><span>{project.year}</span></div>
-          <h1>{project.title}</h1>
-          <p>{project.premise}</p>
+          <div className="case-hero__heading"><div><h1>{project.title}</h1><p>{project.premise}</p></div><Link href="/work">All work <span aria-hidden="true">↗</span></Link></div>
           <div className="case-hero__ownership"><span>{project.ownership}</span><span>{project.role}</span><span>{project.maturity}</span></div>
         </header>
 
-        <section className="case-evidence" aria-labelledby="evidence-title">
+        <section className="case-evidence case-evidence--gallery" aria-labelledby="evidence-title">
           <div className="case-evidence__heading">
             <div>
-              <span>PRIMARY EVIDENCE</span>
-              <h2 id="evidence-title">The work, not a mockup.</h2>
+              <span>FIELD NOTES / {String(evidence.length).padStart(2, "0")} CAPTURES</span>
+              <h2 id="evidence-title">Read the build from several angles.</h2>
             </div>
-            <p>{project.media ? project.media.alt : "No public product capture is approved for this build record."}</p>
+            <p>Authentic screens, terminal output, and architecture plates are kept together so the page shows the shape of the work without inflating the claim.</p>
           </div>
-          {project.media ? (
-            <figure className={`case-evidence__frame case-evidence__frame--${project.media.kind}`}>
-              <div className="case-evidence__image">
-                <Image
-                  src={project.media.src}
-                  alt={project.media.alt}
-                  width={project.media.width}
-                  height={project.media.height}
-                  sizes="(max-width: 680px) 92vw, (max-width: 1100px) 86vw, 78vw"
-                  priority
-                />
-              </div>
-              <figcaption>
-                <span>{project.media.kind.replaceAll("-", " ")}</span>
-                <span>{project.media.width} × {project.media.height}</span>
-                <span>APPROVED PUBLIC MEDIA</span>
-              </figcaption>
-            </figure>
+          {evidence.length > 0 ? (
+            <div className="case-gallery" aria-label={`${project.title} evidence gallery`}>
+              {evidence.map((item, index) => (
+                <figure className={`case-gallery__item case-gallery__item--${index + 1} case-evidence__frame--${item.kind}`} key={item.src}>
+                  <div className="case-evidence__image"><Image src={item.src} alt={item.alt} width={item.width} height={item.height} sizes="(max-width: 680px) 92vw, (max-width: 1100px) 46vw, 32vw" priority={index === 0} /></div>
+                  <figcaption><span>{String(index + 1).padStart(2, "0")}</span><span>{item.kind.replaceAll("-", " ")}</span><span>{item.alt}</span></figcaption>
+                </figure>
+              ))}
+            </div>
           ) : (
             <div className="case-evidence__restricted" role="note">
               <span>MEDIA / WITHHELD</span>
