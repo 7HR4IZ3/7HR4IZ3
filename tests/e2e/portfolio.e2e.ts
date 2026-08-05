@@ -17,6 +17,7 @@ test("the workbench evidence assets are deployable", async ({ request }) => {
     "/projects/motion-cues.png",
     "/projects/opencode-annotate.png",
     "/projects/stackjet.svg",
+    "/blueprint/ink-field.png",
   ];
 
   for (const asset of assets) {
@@ -87,4 +88,12 @@ test("reduced motion keeps content and the workbench path", async ({ page }) => 
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.locator(".machine-stage")).toBeVisible();
   await expect(page.getByRole("link", { name: /See what I build/i })).toBeVisible();
+});
+
+test("ink blueprint demo renders the real evidence field", async ({ page }) => {
+  await page.goto("/demo/ink-blueprint");
+  await expect(page.getByRole("heading", { level: 1, name: /Draw the system before you build it/i })).toBeVisible();
+  await expect(page.locator(".blueprint-field")).toBeVisible();
+  await expect(page.locator(".blueprint-plate")).toHaveCount(6);
+  await expect(page.getByRole("link", { name: /Return to Signal Cartography/i })).toHaveAttribute("href", "/");
 });

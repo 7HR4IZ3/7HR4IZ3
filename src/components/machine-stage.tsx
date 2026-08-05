@@ -2,12 +2,12 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { MachinePoster } from "@/components/machine-poster";
+import { CartographyPoster } from "@/components/cartography-poster";
 import type { ScrollSignal } from "@/components/scroll-signal";
 
-const AgentWorkbench = dynamic(
-  () => import("@/components/boundary-machine").then((module) => module.AgentWorkbench),
-  { ssr: false, loading: () => <MachinePoster /> },
+const SignalCartography = dynamic(
+  () => import("@/components/signal-cartography").then((module) => module.SignalCartography),
+  { ssr: false, loading: () => <CartographyPoster /> },
 );
 
 function supportsWebGL() {
@@ -50,76 +50,43 @@ export function MachineStage() {
   }, []);
 
   useEffect(() => {
-    let frame = 0;
-    let markers: { chapter: number; top: number }[] = [];
-
-    const measure = () => {
-      markers = Array.from(document.querySelectorAll<HTMLElement>("[data-workbench-chapter]"))
-        .map((element) => ({
-          chapter: Number(element.dataset.workbenchChapter),
-          top: element.getBoundingClientRect().top + window.scrollY,
-        }))
-        .sort((a, b) => a.top - b.top);
+    const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-workbench-chapter]"));
+    const syncChapter = () => {
+      const focusLine = window.innerHeight * 0.48;
+      const visible = elements
+        .map((element) => {
+          const rect = element.getBoundingClientRect();
+          return { element, rect, distance: Math.abs(rect.top + rect.height / 2 - focusLine) };
+        })
+        .filter(({ rect }) => rect.bottom > 0 && rect.top < window.innerHeight)
+        .sort((a, b) => a.distance - b.distance)[0];
+      if (!visible) return;
+      const current = Number(visible.element.dataset.workbenchChapter ?? 0);
+      progress.set(current / 9);
+      setChapter((previous) => previous === current ? previous : current);
     };
-
-    const sync = () => {
-      frame = 0;
-      if (!markers.length) measure();
-      const cursor = window.scrollY + window.innerHeight * 0.52;
-      let markerIndex = 0;
-      for (let index = 1; index < markers.length; index += 1) {
-        if (cursor < markers[index].top) break;
-        markerIndex = index;
-      }
-      const current = markers[markerIndex];
-      const next = markers[markerIndex + 1];
-      if (!current) return;
-      const span = next ? Math.max(1, next.top - current.top) : window.innerHeight;
-      const localProgress = Math.min(0.999, Math.max(0, (cursor - current.top) / span));
-      progress.set((current.chapter + localProgress) / 9);
-      setChapter((previous) => previous === current.chapter ? previous : current.chapter);
-    };
-
-    const update = () => {
-      if (!frame) frame = requestAnimationFrame(sync);
-    };
-
-    const remeasure = () => {
-      measure();
-      update();
-    };
-
-    remeasure();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", remeasure, { passive: true });
-    window.addEventListener("load", remeasure, { once: true });
-    return () => {
-      if (frame) cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", remeasure);
-      window.removeEventListener("load", remeasure);
-    };
+    const observer = new IntersectionObserver(syncChapter, { threshold: [0, 0.15, 0.5, 1] });
+    elements.forEach((element) => observer.observe(element));
+    syncChapter();
+    return () => observer.disconnect();
   }, [progress]);
 
   useEffect(() => {
     if (reducedMotion) return;
     const activate = () => setActive(true);
-    const activationFrame = window.location.hash.startsWith("#project-") ? requestAnimationFrame(activate) : 0;
-    const events = ["scroll", "wheel", "pointerdown", "pointermove", "touchstart", "keydown"] as const;
-    events.forEach((event) => window.addEventListener(event, activate, { passive: true, once: true }));
+    const activationFrame = requestAnimationFrame(activate);
     return () => {
-      if (activationFrame) cancelAnimationFrame(activationFrame);
-      events.forEach((event) => window.removeEventListener(event, activate));
+      cancelAnimationFrame(activationFrame);
     };
   }, [reducedMotion]);
 
   return (
     <div className="machine-stage" data-webgl={webgl ? "ready" : "fallback"} data-renderer={webgl && active ? "webgl" : "poster"} data-chapter={chapter} data-project={chapter >= 2 && chapter <= 7 ? chapterLabels[chapter] : undefined}>
-      {webgl && active ? <AgentWorkbench progress={progress} /> : <MachinePoster />}
+      {webgl && active ? <SignalCartography progress={progress} /> : <CartographyPoster />}
       <div className="machine-stage__shade" aria-hidden="true" />
       <div className="machine-stage__readout" aria-hidden="true">
-        <span>{chapterLabels[chapter]} / {chapter >= 2 && chapter <= 7 ? "EVIDENCE LOCKED" : "AGENT WORKBENCH"}</span>
-        <span>SCROLL TO LOAD PROJECT · DRAG TO INSPECT</span>
+        <span>{chapterLabels[chapter]} / {chapter >= 2 && chapter <= 7 ? "SIGNAL RESOLVED" : "SIGNAL CARTOGRAPHY"}</span>
+        <span>DRAG TO INSPECT</span>
       </div>
     </div>
   );

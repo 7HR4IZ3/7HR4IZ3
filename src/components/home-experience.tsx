@@ -7,8 +7,8 @@ import { contactHref, siteConfig } from "@/content/site";
 
 const record = [
   ["01", "Lead Engineer", "CheckAroundMe"],
-  ["02", "Software Engineer", "Formerly Lunary.ai"],
-  ["03", "Top Rated", "Upwork · since 2023"],
+  ["02", "Software Engineer", "Lunary.ai"],
+  ["03", "Top Rated", "Upwork since 2023"],
   ["04", "Engineering", "University of Benin"],
 ] as const;
 
@@ -17,70 +17,70 @@ export function HomeExperience() {
     <>
       <MachineStage />
       <main id="main-content" className="home-experience" tabIndex={-1}>
-        <section className="home-hero" id="home" data-workbench-chapter="0" aria-labelledby="home-title">
-          <div className="home-hero__identity">
+        <section className="frontpage-hero" id="home" data-workbench-chapter="0" aria-labelledby="home-title">
+          <div className="frontpage-hero__identity">
             <span>{siteConfig.handle}</span>
-            <span>{siteConfig.title} · {siteConfig.location}</span>
+            <span>{siteConfig.title} / {siteConfig.location}</span>
           </div>
-          <div className="home-hero__copy">
-            <p className="home-hero__brand">THRAIZE</p>
+          <div className="frontpage-hero__copy">
+            <p className="frontpage-hero__brand">THRAIZE</p>
             <h1 id="home-title">I build software for ideas that do not fit a template.</h1>
-            <p className="home-hero__lede">
-              Mobile AI workspaces. Parallel coding agents. A Mac desktop anchored in a room. I take unusual product ideas through interface, runtime, backend, and release.
-            </p>
-            <div className="home-actions">
+            <p className="frontpage-hero__lede">Mobile AI workspaces, parallel coding agents, and spatial tools built across runtimes, products, and platforms.</p>
+            <div className="frontpage-hero__actions">
               <a href="#project-kaizen-code">See what I build</a>
               <a href={contactHref}>Contact me</a>
             </div>
           </div>
-          <a className="scroll-cue" href="#record">Scroll to spawn workspaces <span aria-hidden="true">↓</span></a>
+          <div className="frontpage-hero__coordinates" aria-hidden="true">
+            <span>Six systems</span>
+            <span>One connected practice</span>
+          </div>
         </section>
 
-        <section className="professional-record" id="record" data-workbench-chapter="1" aria-labelledby="record-title">
-          <div className="chapter-heading">
-            <span>SPAWN / PROFESSIONAL RECORD</span>
-            <h2 id="record-title">Product range backed by production responsibility.</h2>
+        <section className="frontpage-record" id="record" data-workbench-chapter="1" aria-labelledby="record-title">
+          <div className="frontpage-record__intro">
+            <h2 id="record-title">A range of systems. One working style.</h2>
+            <p>I work from product intent down to the runtime details that make an idea dependable in the hands of another person.</p>
           </div>
-          <div className="professional-record__list">
+          <div className="frontpage-record__list">
             {record.map(([index, title, context]) => (
               <div key={index}><span>{index}</span><strong>{title}</strong><span>{context}</span></div>
             ))}
           </div>
         </section>
 
-        <div className="project-chapters" id="featured-work">
-          {featuredProjects.map((project, index) => (
-            <section className={`project-chapter project-chapter--${index % 2 ? "right" : "left"}`} id={`project-${project.slug}`} data-workbench-chapter={index + 2} key={project.slug} aria-labelledby={`${project.slug}-title`}>
-              <article className="project-chapter__panel">
-                <div className="project-chapter__meta">
-                  <span>WORKSPACE {project.index}</span>
+        <div className="frontpage-projects" id="featured-work">
+          {featuredProjects.map((project) => (
+            <section className="frontpage-project" id={`project-${project.slug}`} data-workbench-chapter={(project.featuredOrder ?? 0) + 1} key={project.slug} aria-labelledby={`${project.slug}-title`}>
+              <div className="frontpage-project__index" aria-hidden="true">{project.index}</div>
+              <article className="frontpage-project__copy">
+                <div className="frontpage-project__meta">
                   <span>{project.status}</span>
                   <span>{project.year}</span>
                 </div>
                 <h2 id={`${project.slug}-title`}>{project.title}</h2>
-                <p className="project-chapter__premise">{project.premise}</p>
-                <p className="project-chapter__proof">{project.proof[0]}</p>
-                <div className="project-chapter__domains" aria-label={`${project.title} systems`}>
+                <p className="frontpage-project__premise">{project.premise}</p>
+                <p className="frontpage-project__proof">{project.proof[0]}</p>
+                <div className="frontpage-project__domains" aria-label={`${project.title} systems`}>
                   {project.domains.map((domain) => <span key={domain}>{domain}</span>)}
                 </div>
-                <Link href={`/work/${project.slug}`}>Read the build record <span aria-hidden="true">↗</span></Link>
+                <Link href={`/work/${project.slug}`}>Open case study <span aria-hidden="true">↗</span></Link>
               </article>
-              <span className="project-chapter__number" aria-hidden="true">{project.index}</span>
             </section>
           ))}
         </div>
 
         <section className="experience-chapter" id="experience" data-workbench-chapter="8" aria-labelledby="experience-title">
           <div className="experience-chapter__intro">
-            <span>MERGE / EXPERIENCE</span>
+            <span>Professional experience</span>
             <div className="experience-chapter__statement">
               <h2 id="experience-title">The work continues after the interesting prototype.</h2>
-              <p>I have worked across startup ownership, production AI software, and independent client engineering—turning product direction into systems that can be shipped, maintained, and trusted.</p>
+              <p>I have worked across startup ownership, production AI software, and independent client engineering. The common thread is carrying product direction into systems that can be shipped and maintained.</p>
             </div>
             <div className="experience-chapter__summary" aria-label="Professional experience summary">
               <div><strong>{String(experience.length).padStart(2, "0")}</strong><span>Professional tracks</span></div>
               <div><strong>2023</strong><span>Professional work began</span></div>
-              <div><strong>END→END</strong><span>Product through operations</span></div>
+              <div><strong>END TO END</strong><span>Product through operations</span></div>
             </div>
           </div>
           <div className="experience-ledger">
@@ -109,16 +109,11 @@ export function HomeExperience() {
               </article>
             ))}
           </div>
-          <div className="experience-chain" aria-label="How I carry work through a product">
-            {(["Direction", "Architecture", "Implementation", "Release", "Maintenance"] as const).map((stage, index) => (
-              <span key={stage}>{String(index + 1).padStart(2, "0")} · {stage}</span>
-            ))}
-          </div>
         </section>
 
         <section className="working-set" aria-labelledby="working-set-title">
           <div className="working-set__heading">
-            <h2 id="working-set-title">Unmerged branches</h2>
+            <h2 id="working-set-title">The working set</h2>
             <p>Early products and local experiments, labeled by what exists rather than what they might become.</p>
           </div>
           <div className="working-set__list">
@@ -138,14 +133,14 @@ export function HomeExperience() {
           <div className="home-about__copy">
             <h2 id="home-about-title">Full-stack engineer. Product builder. Persistent problem solver.</h2>
             <p>I move in both directions: downward into runtimes, protocols, data, and native bridges; upward into interfaces, language, reliability, and whether the product makes sense to use.</p>
-            <p>{education.programme} · {education.field} · {education.institution}</p>
+            <p>{education.programme} / {education.field} / {education.institution}</p>
             <Link href="/about">About Alhassan <span aria-hidden="true">↗</span></Link>
           </div>
         </section>
 
         <section className="contact-chapter" id="contact" aria-labelledby="contact-title">
-          <span>READY FOR THE NEXT DIFFICULT THING</span>
-          <h2 id="contact-title">Let’s build something useful.</h2>
+          <span>Open to the next difficult thing</span>
+          <h2 id="contact-title">Let&apos;s build something useful.</h2>
           <p>{siteConfig.availability}</p>
           <a href={contactHref}>{siteConfig.contact.email} <span aria-hidden="true">↗</span></a>
         </section>
