@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<rect width="1200" height="720" fill="#f4efe6"/>
+<rect x="40" y="40" width="1120" height="640" fill="#eee8dc" stroke="#1b1b17" stroke-width="2"/>
+<text x="80" y="100" font-family="monospace" font-size="11" fill="#8e2b11">04 — ANDROID SUITE — LOCAL-FIRST NATIVE</text>
+<text x="80" y="150" font-family="serif" font-size="40" font-weight="800" fill="#1b1b17">Four tools. One native stance.</text>
+<g transform="translate(80,200)">
+  <rect x="0" y="0" width="250" height="320" fill="#1b1b17" rx="14" stroke="#1b1b17"/><text x="125" y="40" fill="#f4efe6" font-family="monospace" font-size="11" text-anchor="middle">NOTIFICATION</text><rect x="30" y="70" width="190" height="120" fill="#f4efe6" rx="6"/><text x="125" y="140" fill="#1b1b17" font-family="monospace" font-size="9" text-anchor="middle">Reminder at 18:30</text>
+  <rect x="290" y="0" width="250" height="320" fill="#1b1b17" rx="14" stroke="#1b1b17"/><text x="415" y="40" fill="#f4efe6" font-family="monospace" font-size="11" text-anchor="middle">CLIPBOARD</text><rect x="320" y="70" width="190" height="120" fill="#f4efe6" rx="6"/><text x="415" y="120" fill="#1b1b17" font-family="monospace" font-size="9" text-anchor="middle">snippet: api_key</text><text x="415" y="140" fill="#5d5b50" font-family="monospace" font-size="9" text-anchor="middle">vault · encrypted</text>
+  <rect x="580" y="0" width="250" height="320" fill="#1b1b17" rx="14" stroke="#1b1b17"/><text x="705" y="40" fill="#f4efe6" font-family="monospace" font-size="11" text-anchor="middle">SCREENSHOT</text><rect x="610" y="70" width="190" height="90" fill="#1b1b17" stroke="#f4efe6"/><text x="705" y="100" fill="#f4efe6" font-family="monospace" font-size="8" text-anchor="middle">OCR: 1,204 chars</text><text x="705" y="120" fill="#f4efe6" font-family="monospace" font-size="8" text-anchor="middle">category: receipt</text>
+  <rect x="870" y="0" width="250" height="320" fill="#1b1b17" rx="14" stroke="#1b1b17"/><text x="995" y="40" fill="#f4efe6" font-family="monospace" font-size="11" text-anchor="middle">AUTOMATION</text><rect x="900" y="70" width="190" height="60" fill="#d8d2c5" rx="6"/><text x="995" y="100" font-family="monospace" font-size="8" text-anchor="middle">WHEN wifi home</text><text x="995" y="116" font-family="monospace" font-size="8" text-anchor="middle">→ IF time &gt;18:00</text>
+</g>
+<text x="80" y="580" font-family="monospace" font-size="10" fill="#5d5b50">+ Motion overlay · sensor dots · non-touchable · foreground service · Play Billing</text>
+</svg>

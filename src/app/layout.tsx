@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Caveat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { DeskEdge } from "@/components/desk-edge";
 import { siteConfig } from "@/content/site";
 
 const recursive = localFont({
@@ -8,6 +10,13 @@ const recursive = localFont({
   display: "swap",
   variable: "--font-recursive",
   weight: "300 1000",
+});
+
+const hand = Caveat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-hand",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -41,7 +50,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={recursive.variable}>{children}</body>
+      <body className={`${recursive.variable} ${hand.variable}`}>
+        {children}
+        <DeskEdge />
+      </body>
     </html>
   );
 }

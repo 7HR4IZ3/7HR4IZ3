@@ -2,11 +2,10 @@ import Link from "next/link";
 import { siteConfig } from "@/content/site";
 
 const navigation = [
-  { href: "/work", label: "Work" },
-  { href: "/lab", label: "Lab" },
-  { href: "/#experience", label: "Experience" },
+  { href: "/", label: "Desk" },
+  { href: "/work", label: "Folders" },
+  { href: "/bench", label: "Bench" },
   { href: "/about", label: "About" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 function NavigationLinks({ mobile = false }: { mobile?: boolean }) {
