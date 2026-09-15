@@ -1229,7 +1229,7 @@ body:has(.desk-field) { padding-bottom: 44px; }
   display: grid;
   place-items: start center;
   padding: 32px 16px 40px;
-  overflow: auto;
+  overflow: hidden;
   background: rgba(27, 27, 23, 0.48);
   backdrop-filter: blur(6px);
 }
@@ -1241,14 +1241,15 @@ body:has(.desk-field) { padding-bottom: 44px; }
   background: var(--paper-light);
   border: 2px solid var(--ink);
   box-shadow: 12px 14px 0 rgba(27,27,23,.18);
+  display: flex;
+  flex-direction: column;
 }
-.popup-scroll { max-height: min(88svh, 900px); overflow: auto; }
+.popup-scroll { flex: 1; overflow: auto; overscroll-behavior: contain; min-height: 0; }
 .popup-close {
-  position: sticky;
-  top: 0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
   z-index: 5;
-  float: right;
-  margin: 10px 10px 0 0;
   width: 36px;
   height: 36px;
   display: grid;

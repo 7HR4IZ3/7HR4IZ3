@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { FolderSpread } from "@/components/folder-spread";
 import { PopupShell } from "@/components/popup-shell";
+import { benchNotes } from "@/content/bench";
 import { getProject, projects } from "@/content/projects";
 
 type Popup =
@@ -148,8 +149,8 @@ export function HashPopupRouter() {
             <h1 style={{ fontSize: "42px" }}>Every folder on the desk.</h1>
             <p>Flagship systems first, then the wider repository.</p>
           </header>
-          <div style={{ padding: "12px 22px 22px", display: "grid", gap: 8 }}>
-            {projects.slice(0, 14).map((p) => (
+          <div style={{ padding: "12px 22px 22px", display: "grid", gap: 8, maxHeight: "56svh", overflow: "auto" }}>
+            {projects.map((p) => (
               <a
                 key={p.slug}
                 href={`#/work/${p.slug}`}
@@ -167,9 +168,6 @@ export function HashPopupRouter() {
                 </span>
               </a>
             ))}
-            <Link href="/work" style={{ borderBottom: "1px solid var(--ink)", width: "fit-content", fontWeight: 700 }}>
-              open full drawer ↗
-            </Link>
           </div>
         </div>
       </PopupShell>
