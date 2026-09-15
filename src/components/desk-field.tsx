@@ -63,7 +63,7 @@ export function DeskField() {
   }, [reduced]);
 
   const onPointerDown = (e: React.PointerEvent) => {
-    if (reduced || window.innerWidth <= 680) return;
+    if (reduced) return;
     drag.current.active = true;
     drag.current.startX = e.clientX;
     drag.current.startY = e.clientY;
@@ -76,8 +76,8 @@ export function DeskField() {
     const dx = e.clientX - drag.current.startX;
     const dy = e.clientY - drag.current.startY;
     setOffset({
-      x: Math.max(-80, Math.min(80, drag.current.originX + dx * 0.35)),
-      y: Math.max(-60, Math.min(60, drag.current.originY + dy * 0.35)),
+      x: Math.max(-220, Math.min(220, drag.current.originX + dx * 0.55)),
+      y: Math.max(-160, Math.min(160, drag.current.originY + dy * 0.55)),
     });
   };
   const onPointerUp = (e: React.PointerEvent) => {
@@ -93,11 +93,17 @@ export function DeskField() {
         <span>THRAIZE — personal space</span>
         <span>six systems · one practice</span>
       </div>
-      <div className="desk-field__title">
+      <div className="desk-hero-sheet" style={{ left: "7%", top: "9%", transform: "rotate(-2deg)" }} aria-label="Intro">
+        <span className="desk-hero-sheet__tape" aria-hidden="true" />
+        <span className="desk-hero-sheet__stamp">THRAIZE 7HR4IZ3 — since 2023</span>
         <h1>
           I build software for ideas that do not fit a template.
         </h1>
-        <p>Mobile AI workspaces, parallel agents, spatial, native, chess, and bridges — all on one desk.</p>
+        <p>
+          Mobile AI workspaces, parallel agents, spatial, native, chess, and bridges — all on one desk.{" "}
+          <span className="crossed">polished for strangers</span> inhabited for you.
+        </p>
+        <span className="desk-hero-sheet__hand">→ drag the desk, open a folder ↗</span>
       </div>
 
       <div
@@ -106,8 +112,8 @@ export function DeskField() {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
-        role="application"
         aria-label="Draggable desk — drag to pan, arrow keys to nudge"
+        aria-describedby="desk-hint"
         tabIndex={0}
       >
         <div
@@ -180,7 +186,7 @@ export function DeskField() {
         </div>
       </div>
 
-      <div className="desk-field__hint" aria-hidden="true">
+      <div id="desk-hint" className="desk-field__hint" aria-hidden="true">
         <span>draggable</span>
         <span>arrow keys</span>
         <span>six systems</span>
