@@ -55,7 +55,7 @@ export function DeskField() {
         if (e.key === "ArrowRight") nx -= step;
         if (e.key === "ArrowUp") ny += step;
         if (e.key === "ArrowDown") ny -= step;
-        return { x: Math.max(-220, Math.min(220, nx)), y: Math.max(-160, Math.min(160, ny)) };
+        return { x: Math.max(-120, Math.min(120, nx)), y: Math.max(-90, Math.min(90, ny)) };
       });
     };
     window.addEventListener("keydown", onKey);
@@ -77,8 +77,8 @@ export function DeskField() {
     const dy = e.clientY - drag.current.startY;
     if (Math.hypot(dx, dy) < 8) return;
     setOffset({
-      x: Math.max(-220, Math.min(220, drag.current.originX + dx * 0.55)),
-      y: Math.max(-160, Math.min(160, drag.current.originY + dy * 0.55)),
+      x: Math.max(-120, Math.min(120, drag.current.originX + dx * 0.55)),
+      y: Math.max(-90, Math.min(90, drag.current.originY + dy * 0.55)),
     });
   };
   const onPointerUp = (e: React.PointerEvent) => {
@@ -124,12 +124,12 @@ export function DeskField() {
             <span className="desk-hero-sheet__hand">→ drag the desk, open a folder ↗</span>
           </div>
 
-          {/* strings — lived-in workshop */}
+          {/* strings — pinned thread hero to plates */}
           <svg className="desk-strings" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <line x1="18" y1="28" x2="72" y2="22" />
-            <line x1="42" y1="78" x2="78" y2="68" />
-            <line x1="12" y1="58" x2="38" y2="72" />
-            <line x1="68" y1="42" x2="88" y2="48" />
+            <line x1="18" y1="18" x2="16" y2="26" />
+            <line x1="22" y1="16" x2="76" y2="22" />
+            <line x1="44" y1="70" x2="70" y2="60" />
+            <line x1="10" y1="52" x2="30" y2="58" />
           </svg>
 
           {/* lamp shadow + coffee ring */}

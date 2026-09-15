@@ -5,7 +5,7 @@ import Link from "next/link";
 import { SystemDiagram } from "@/components/system-diagram";
 import type { Project } from "@/content/projects";
 
-export function FolderSpread({ project, nextSlug, nextTitle }: { project: Project; nextSlug: string; nextTitle: string }) {
+export function FolderSpread({ project, nextSlug, nextTitle, isPopup = false }: { project: Project; nextSlug: string; nextTitle: string; isPopup?: boolean }) {
   const evidence = [project.media, ...(project.gallery ?? [])].filter(
     (item, index, all): item is NonNullable<typeof item> => Boolean(item) && all.findIndex((c) => c?.src === item?.src) === index,
   ).slice(0, 5);
@@ -16,7 +16,7 @@ export function FolderSpread({ project, nextSlug, nextTitle }: { project: Projec
       <div className="folder-page__meta">
         <span>FOLDER {project.index}</span>
         <span>{project.status} · {project.year}</span>
-        <Link href="/work">← all folders</Link>
+        <Link href={isPopup ? "#/work" : "/work"}>← all folders</Link>
       </div>
 
       <div className="folder">
@@ -49,7 +49,16 @@ export function FolderSpread({ project, nextSlug, nextTitle }: { project: Projec
                 <button
                   key={id}
                   type="button"
-                  onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  onClick={(e) => {
+                    const el = document.getElementById(id);
+                    const container = (e.currentTarget as HTMLElement).closest(".popup-scroll") as HTMLElement | null;
+                    if (el && container) {
+                      const top = el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop - 12;
+                      container.scrollTo({ top, behavior: "smooth" });
+                    } else {
+                      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  }}
                 >
                   {label}
                 </button>
@@ -167,7 +176,7 @@ export function FolderSpread({ project, nextSlug, nextTitle }: { project: Projec
               </section>
             )}
 
-            <Link className="folder__next" href={`/work/${nextSlug}`}>
+            <Link className="folder__next" href={isPopup ? `#/work/${nextSlug}` : `/work/${nextSlug}`}>
               <span>Next folder</span>
               <strong>{nextTitle}</strong>
               <span aria-hidden="true">→</span>

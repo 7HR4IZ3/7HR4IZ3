@@ -84,6 +84,7 @@ export function HashPopupRouter() {
               ["CHESS", "7HR4IZ3 — chess", "Chess.com & Lichess: 7HR4IZ3"],
               ["PHONE", "Daily drivers", "iPhone 11 · S21 Ultra"],
               ["LAPTOP", "MacBook Air M1 · 2020 · 8GB · Silver", "daily workstation"],
+              ["DOTFILES", "Dotfiles / configs", "No public dotfiles yet — brewing"],
               ["SCHOOL", "UNIBEN — Materials & Metallurgy", "4th year · since 2023"],
               ["EXPERIMENT", "OSS Hub", "Turborepo · Expo + Convex"],
               ["EXPERIMENT", "Socially", "6 networks · SaaS"],
@@ -183,7 +184,7 @@ export function HashPopupRouter() {
     return (
       <PopupShell label={project.title} onClose={close}>
         <div className="popup-scroll">
-          <FolderSpread project={project} nextSlug={next.slug} nextTitle={next.title} />
+          <FolderSpread project={project} nextSlug={next.slug} nextTitle={next.title} isPopup />
           <div style={{ padding: "12px 22px", borderTop: "1px solid var(--ink-line)", display: "flex", gap: 12 }}>
             <a
               href="#/"
