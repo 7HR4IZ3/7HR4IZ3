@@ -15,8 +15,11 @@ type Popup =
 
 function parseHash(hash: string): Popup {
   if (!hash || hash === "#" || hash === "#/" || hash === "#") return null;
-  const h = hash.replace(/^#/, "").trim();
-  const clean = h.replace(/^\//, "");
+  let h = hash.replace(/^#/, "").trim();
+  // strip query/hash params
+  h = h.split("?")[0].split("&")[0];
+  try { h = decodeURIComponent(h); } catch {}
+  const clean = h.replace(/^\//, "").replace(/\/$/, "");
   // folders
   if (clean === "work" || clean === "folders" || clean === "work/") return { type: "folders" };
   // bench
@@ -44,10 +47,9 @@ export function HashPopupRouter() {
   });
 
   const close = useCallback(() => {
-    // remove hash without scrolling
-    history.pushState(null, "", window.location.pathname + window.location.search);
+    // remove hash without adding history entry
+    history.replaceState(null, "", window.location.pathname + window.location.search);
     setPopup(null);
-    // dispatch hashchange so listeners sync
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   }, []);
 
@@ -55,7 +57,11 @@ export function HashPopupRouter() {
     const onHash = () => setPopup(parseHash(window.location.hash));
     onHash();
     window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
+    window.addEventListener("popstate", onHash);
+    return () => {
+      window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("popstate", onHash);
+    };
   }, []);
 
   if (!popup) return null;

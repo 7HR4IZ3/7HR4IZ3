@@ -933,6 +933,17 @@ body:has(.desk-field) { padding-bottom: 44px; }
   border: 1.5px solid var(--ink);
   box-shadow: 6px 7px 0 rgba(27,27,23,.13);
   z-index: 4;
+  clip-path: polygon(0 1.2%, 100% 0, 100% 98.8%, 0 100%);
+}
+.desk-hero-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 6px -7px -7px 7px;
+  background: var(--paper-dark);
+  border: 1px solid var(--ink-line);
+  transform: rotate(1.6deg);
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 1%, 100% 100%, 0 99%);
 }
 .desk-hero-sheet__tape {
   position: absolute;
@@ -985,6 +996,7 @@ body:has(.desk-field) { padding-bottom: 44px; }
   border: 2px solid var(--ink);
   box-shadow: 7px 8px 0 rgba(27,27,23,.16);
   overflow: hidden;
+  clip-path: polygon(0 0.8%, 100% 0, 100% 99.2%, 0 100%);
 }
 .desk-plate__frame::after {
   content: "EVIDENCE";
@@ -1017,9 +1029,11 @@ body:has(.desk-field) { padding-bottom: 44px; }
 .desk-plate__tape--a { top: -9px; transform: translateX(-50%) rotate(-4deg); }
 .desk-plate__tape--b { top: auto; bottom: -7px; left: auto; right: 18px; transform: rotate(6deg); width: 44px; }
 .desk-plate--lg { width: clamp(220px, 24vw, 360px); }
+.desk-plate--lg .desk-plate__frame { box-shadow: 9px 11px 0 rgba(27,27,23,.16); }
 .desk-plate--md { width: clamp(180px, 20vw, 300px); }
 .desk-plate--sm { width: clamp(160px, 18vw, 260px); }
 .desk-plate--sm .desk-plate__frame img { max-height: 140px; }
+.desk-plate--sm .desk-plate__frame { box-shadow: 5px 6px 0 rgba(27,27,23,.14); }
 .desk-strings { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
 .desk-strings line { stroke: rgba(142, 43, 17, 0.42); stroke-width: 0.55; stroke-dasharray: 3 4; }
 .desk-lamp { position: absolute; top: -8%; right: -4%; width: 62%; height: 56%; background: radial-gradient(ellipse at 70% 20%, rgba(239,91,42,.16), transparent 62%); filter: blur(0.6px); mix-blend-mode: multiply; pointer-events: none; z-index: 1; }
