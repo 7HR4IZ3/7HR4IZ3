@@ -48,8 +48,7 @@ export function HashPopupRouter() {
   });
 
   const close = useCallback(() => {
-    // remove hash without adding history entry
-    history.replaceState(null, "", window.location.pathname + window.location.search);
+    history.replaceState(null, "", "/");
     setPopup(null);
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   }, []);
@@ -81,23 +80,33 @@ export function HashPopupRouter() {
             <p>Chess, devices, school, and 3 hireable experiments — pinned lightly.</p>
           </header>
           <div className="bench-table" style={{ padding: "18px 22px" }}>
-            {[
-              ["CHESS", "7HR4IZ3 — chess", "Chess.com & Lichess: 7HR4IZ3"],
-              ["PHONE", "Daily drivers", "iPhone 11 · S21 Ultra"],
-              ["LAPTOP", "MacBook Air M1 · 2020 · 8GB · Silver", "daily workstation"],
-              ["DOTFILES", "Dotfiles / configs", "No public dotfiles yet — brewing"],
-              ["SCHOOL", "UNIBEN — Materials & Metallurgy", "4th year · since 2023"],
-              ["EXPERIMENT", "OSS Hub", "Turborepo · Expo + Convex"],
-              ["EXPERIMENT", "Socially", "6 networks · SaaS"],
-              ["EXPERIMENT", "Video Creator", "article → video pipeline"],
-            ].map(([label, title, note]) => (
-              <div key={title} className="bench-note">
-                <span className="bench-note__tape" aria-hidden="true" />
-                <span className="bench-note__label">{label}</span>
-                <strong>{title}</strong>
-                <p>{note as string}</p>
-              </div>
-            ))}
+            {benchNotes.map((item) => {
+              const href = (item as { href?: string }).href;
+              const content = (
+                <>
+                  <span className="bench-note__tape" aria-hidden="true" />
+                  <span className="bench-note__label">{item.label}</span>
+                  <strong>{item.title}</strong>
+                  <p>{item.note}</p>
+                  <span className="bench-note__span">{item.span}</span>
+                </>
+              );
+              return href ? (
+                href.startsWith("http") ? (
+                  <a key={item.title} href={href} target="_blank" rel="noreferrer" className="bench-note bench-note--linked">
+                    {content}
+                  </a>
+                ) : (
+                  <a key={item.title} href={`/#${href.replace(/^\//, "")}`} className="bench-note bench-note--linked">
+                    {content}
+                  </a>
+                )
+              ) : (
+                <div key={item.title} className="bench-note">
+                  {content}
+                </div>
+              );
+            })}
           </div>
           <div style={{ padding: "14px 22px", borderTop: "1px solid var(--ink-line)" }}>
             <a href="#/" onClick={(e) => { e.preventDefault(); close(); }}>
@@ -149,11 +158,11 @@ export function HashPopupRouter() {
             <h1 style={{ fontSize: "42px" }}>Every folder on the desk.</h1>
             <p>Flagship systems first, then the wider repository.</p>
           </header>
-          <div style={{ padding: "12px 22px 22px", display: "grid", gap: 8, maxHeight: "56svh", overflow: "auto" }}>
+          <div style={{ padding: "12px 22px 22px", display: "grid", gap: 8 }}>
             {projects.map((p) => (
               <a
                 key={p.slug}
-                href={`#/work/${p.slug}`}
+                href={`/#work/${p.slug}`}
                 className="project-row"
                 style={{ minHeight: 0, padding: "14px 12px" }}
               >

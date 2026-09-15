@@ -170,7 +170,7 @@ export function DeskField() {
             return (
               <DeskPlate
                 key={project.slug}
-                href={`#/work/${project.slug}`}
+                href={`/#work/${project.slug}`}
                 index={project.index}
                 title={project.title}
                 premise={project.premise}

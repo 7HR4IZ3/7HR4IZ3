@@ -8,15 +8,15 @@ export function DeskEdge() {
     <nav className="desk-edge" aria-label="Desk">
       <div className="desk-edge__inner">
         <div className="desk-edge__links">
-          <Link href="#/">desk</Link>
+          <Link href="/#/">desk</Link>
           <span aria-hidden="true">·</span>
-          <Link href="#/work">folders</Link>
+          <Link href="/#/work">folders</Link>
           <span aria-hidden="true">·</span>
-          <Link href="#/bench">bench</Link>
+          <Link href="/#/bench">bench</Link>
           <span aria-hidden="true">·</span>
-          <Link href="#/about">about</Link>
+          <Link href="/#/about">about</Link>
         </div>
-        <Link className="desk-edge__mark" href="#/" aria-label="THRAIZE home">
+        <Link className="desk-edge__mark" href="/#/" aria-label="THRAIZE home">
           — THRAIZE <span>{siteConfig.handle}</span> —
         </Link>
         <a className="desk-edge__email" href={contactHref}>

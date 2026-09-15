@@ -28,22 +28,23 @@ export default function BenchPage() {
 
       <section className="bench-table" aria-label="Bench notes">
         {notes.map((item) => {
+          const href = (item as { href?: string }).href;
           const content = (
             <>
               <span className="bench-note__tape" aria-hidden="true" />
               <span className="bench-note__label">{item.label}</span>
               <strong>{item.title}</strong>
               <p>{item.note}</p>
-              <span className="bench-note__span">{item.span} {item.href ? "↗" : ""}</span>
+              <span className="bench-note__span">{item.span} {href ? "↗" : ""}</span>
             </>
           );
-          return item.href ? (
-            item.href.startsWith("http") ? (
-              <a key={item.title} href={item.href} target="_blank" rel="noreferrer" className="bench-note bench-note--linked">
+          return href ? (
+            href.startsWith("http") ? (
+              <a key={item.title} href={href} target="_blank" rel="noreferrer" className="bench-note bench-note--linked">
                 {content}
               </a>
             ) : (
-              <Link key={item.title} href={item.href} className="bench-note bench-note--linked">
+              <Link key={item.title} href={href} className="bench-note bench-note--linked">
                 {content}
               </Link>
             )
