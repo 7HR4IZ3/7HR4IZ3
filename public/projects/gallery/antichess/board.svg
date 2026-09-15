@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<rect width="1200" height="720" fill="#f4efe6"/>
+<rect x="40" y="40" width="1120" height="640" fill="#eee8dc" stroke="#1b1b17" stroke-width="2"/>
+<text x="80" y="100" font-family="monospace" font-size="11" fill="#8e2b11">05 — ANTICHESS — PLAY &amp; REASONING</text>
+<g transform="translate(80,140)">
+  <rect width="520" height="520" fill="#1b1b17" stroke="#1b1b17" stroke-width="2"/>
+  <!-- 8x8 chessboard -->
+  <g id="board">
+    <rect x="20" y="20" width="480" height="480" fill="#eee8dc"/>
+    <!-- squares -->
+    <g fill="#1b1b17">
+      <rect x="20" y="20" width="60" height="60" opacity="0.08"/><rect x="140" y="20" width="60" height="60" opacity="0.08"/><rect x="260" y="20" width="60" height="60" opacity="0.08"/><rect x="380" y="20" width="60" height="60" opacity="0.08"/>
+      <rect x="80" y="80" width="60" height="60" opacity="0.08"/><rect x="200" y="80" width="60" height="60" opacity="0.08"/><rect x="320" y="80" width="60" height="60" opacity="0.08"/><rect x="440" y="80" width="60" height="60" opacity="0.08"/>
+      <rect x="20" y="140" width="60" height="60" opacity="0.08"/><rect x="140" y="140" width="60" height="60" opacity="0.08"/><rect x="260" y="140" width="60" height="60" opacity="0.08"/><rect x="380" y="140" width="60" height="60" opacity="0.08"/>
+      <rect x="80" y="200" width="60" height="60" opacity="0.08"/><rect x="200" y="200" width="60" height="60" opacity="0.08"/><rect x="320" y="200" width="60" height="60" opacity="0.08"/><rect x="440" y="200" width="60" height="60" opacity="0.08"/>
+      <rect x="20" y="260" width="60" height="60" opacity="0.08"/><rect x="140" y="260" width="60" height="60" opacity="0.08"/><rect x="260" y="260" width="60" height="60" opacity="0.08"/><rect x="380" y="260" width="60" height="60" opacity="0.08"/>
+      <rect x="80" y="320" width="60" height="60" opacity="0.08"/><rect x="200" y="320" width="60" height="60" opacity="0.08"/><rect x="320" y="320" width="60" height="60" opacity="0.08"/><rect x="440" y="320" width="60" height="60" opacity="0.08"/>
+      <rect x="20" y="380" width="60" height="60" opacity="0.08"/><rect x="140" y="380" width="60" height="60" opacity="0.08"/><rect x="260" y="380" width="60" height="60" opacity="0.08"/><rect x="380" y="380" width="60" height="60" opacity="0.08"/>
+      <rect x="80" y="440" width="60" height="60" opacity="0.08"/><rect x="200" y="440" width="60" height="60" opacity="0.08"/><rect x="320" y="440" width="60" height="60" opacity="0.08"/><rect x="440" y="440" width="60" height="60" opacity="0.08"/>
+    </g>
+    <!-- pieces as simple letters -->
+    <text x="45" y="60" font-size="36" text-anchor="middle" dominant-baseline="middle">♜</text>
+    <text x="105" y="60" font-size="36" text-anchor="middle">♞</text>
+    <text x="165" y="60" font-size="36" text-anchor="middle">♝</text>
+    <text x="465" y="460" font-size="36" text-anchor="middle">♔</text>
+  </g>
+  <text x="260" y="540" font-family="monospace" font-size="9" fill="#5d5b50" text-anchor="middle">MODEL A vs MODEL B — SAME POSITION</text>
+</g>
+<g transform="translate(640,140)">
+  <text x="0" y="0" font-family="monospace" font-size="10" fill="#8e2b11">EVIDENCE</text>
+  <text x="0" y="36" font-family="serif" font-size="28" font-weight="800" fill="#1b1b17">AntiChess</text>
+  <text x="0" y="66" font-family="monospace" font-size="11" fill="#5d5b50">Play different models · compare reasoning</text>
+  <rect x="0" y="96" width="460" height="1" fill="#1b1b17" opacity="0.18"/>
+  <text x="0" y="130" font-family="monospace" font-size="11" fill="#1b1b17">Monorepo · shared engine · Next.js · shadcn</text>
+  <rect x="0" y="170" width="460" height="86" fill="#1b1b17" stroke="#1b1b17" stroke-width="1"/>
+  <text x="16" y="192" font-family="monospace" font-size="10" fill="#f4efe6">AI-1: Nf6 · 1.2s · depth 18</text>
+  <text x="16" y="210" font-family="monospace" font-size="10" fill="#f4efe6">AI-2: d5 · 0.9s · aggressive</text>
+  <text x="16" y="232" font-family="monospace" font-size="10" fill="#aaa395">Result: same position, different reasoning exposed</text>
+</g>
+</svg>

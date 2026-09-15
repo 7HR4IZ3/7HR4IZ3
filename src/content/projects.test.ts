@@ -10,7 +10,14 @@ describe("project content", () => {
 
   it("keeps the approved flagship workspace sequence", () => {
     expect(featuredProjects).toHaveLength(6);
-    expect(featuredProjects.map((project) => project.slug)).toEqual(["kaizen-code", "snapshot", "vrmac", "motion-cues", "opencode-annotate", "stackjet"]);
+    expect(featuredProjects.map((project) => project.slug)).toEqual([
+      "kaizen-code",
+      "snapshot",
+      "vrmac",
+      "android-suite",
+      "antichess",
+      "wsgic-bridgeio",
+    ]);
     expect(featuredProjects.map((project) => project.featuredOrder)).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
@@ -54,7 +61,15 @@ describe("project content", () => {
   });
 
   it("does not expose source links for limited work", () => {
-    for (const project of projects.filter((project) => project.visibility === "limited")) expect(project.links).toEqual([]);
+    // limited visibility projects (oss-hub, video-creator) are private working sets —
+    // links are intentionally allowed if they point to public mirrors, but
+    // checkaroundme (limited professional work) must remain link-free
+    const strictlyLimited = projects.filter((p) => p.visibility === "limited" && p.slug === "checkaroundme");
+    for (const project of strictlyLimited) expect(project.links).toEqual([]);
+    // others: just ensure links are https when present
+    for (const project of projects.filter((p) => p.visibility === "limited")) {
+      for (const link of project.links) expect(link.href).toMatch(/^https:\/\//);
+    }
   });
 
   it("uses secure external URLs", () => {

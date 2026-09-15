@@ -1,5 +1,4 @@
-import { HomeExperience } from "@/components/home-experience";
-import { SiteHeader } from "@/components/site-header";
+import { DeskField } from "@/components/desk-field";
 import { siteConfig } from "@/content/site";
 
 export default function Home() {
@@ -29,8 +28,9 @@ export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <SiteHeader overlay />
-      <HomeExperience />
+      <main id="main-content">
+        <DeskField />
+      </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </>
   );
