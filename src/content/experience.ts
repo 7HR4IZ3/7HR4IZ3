@@ -64,10 +64,10 @@ export const experience: Experience[] = [
 export const education = {
   institution: "University of Benin",
   programme: "Bachelor of Engineering",
-  field: "Metallurgical and Materials Engineering",
-  level: "Third year",
+  field: "Materials and Metallurgical Engineering",
+  level: "Fourth year · since 2023",
   summary:
-    "Engineering study strengthens the systems, mathematics, experimentation, constraints, and documentation behind my software practice.",
+    "Engineering study strengthens the systems, mathematics, experimentation, constraints, and documentation behind my software practice. Fourth-year student since 2023.",
 } as const;
 
 export const capabilities = [

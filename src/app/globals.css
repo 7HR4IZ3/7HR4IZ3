@@ -1134,6 +1134,8 @@ body:has(.desk-field) { padding-bottom: 44px; }
 .bench-note strong { display: block; margin-top: 8px; font-size: 15px; letter-spacing: -.02em; }
 .bench-note p { margin-top: 6px; color: var(--ink-soft); font-family: var(--font-hand), cursive; font-size: 13px; line-height: 1.35; }
 .bench-note__span { display: block; margin-top: 10px; color: var(--terracotta); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.bench-note--linked { text-decoration: none; cursor: pointer; transition: transform 150ms ease, border-color 150ms ease; }
+.bench-note--linked:hover { transform: translateY(-2px) rotate(0deg); border-color: var(--terracotta); }
 .bench-foot { padding: 28px var(--page-pad); display: flex; gap: 16px; align-items: center; justify-content: space-between; border-top: 2px solid var(--ink); }
 .bench-foot a { border-bottom: 2px solid var(--terracotta); font-weight: 700; }
 .bench-todo { margin: 18px var(--page-pad) 0; padding: 10px 12px; border: 1px dashed var(--terracotta); color: var(--ink-soft); font-size: 11px; line-height: 1.5; font-family: var(--font-hand), cursive; }
