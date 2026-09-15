@@ -5,13 +5,21 @@ import { featuredProjects } from "@/content/projects";
 import { ContactCard } from "@/components/contact-card";
 import { DeskPlate } from "@/components/desk-plate";
 
-const placements: Array<{ left: string; top: string; rotation: string; bottom?: string; right?: string }> = [
-  { left: "8%", top: "18%", rotation: "-6deg" },
-  { left: "auto", top: "16%", rotation: "5deg", right: "10%" },
-  { left: "28%", top: "auto", rotation: "3deg", bottom: "16%" },
-  { left: "auto", top: "auto", rotation: "-5deg", right: "8%", bottom: "20%" },
-  { left: "3%", top: "auto", rotation: "7deg", bottom: "30%" },
-  { left: "auto", top: "40%", rotation: "-7deg", right: "3%" },
+const placements: Array<{
+  left: string;
+  top: string;
+  rotation: string;
+  bottom?: string;
+  right?: string;
+  size: "lg" | "md" | "sm";
+  tape: "top" | "corner" | "double";
+}> = [
+  { left: "6%", top: "20%", rotation: "-7deg", size: "lg", tape: "double" },
+  { left: "auto", top: "14%", rotation: "4deg", right: "9%", size: "md", tape: "top" },
+  { left: "30%", top: "auto", rotation: "-2deg", bottom: "14%", size: "lg", tape: "corner" },
+  { left: "auto", top: "auto", rotation: "5.5deg", right: "6%", bottom: "22%", size: "md", tape: "top" },
+  { left: "2%", top: "auto", rotation: "-5deg", bottom: "32%", size: "sm", tape: "corner" },
+  { left: "auto", top: "38%", rotation: "-8deg", right: "2%", size: "sm", tape: "double" },
 ];
 
 const metaFor = (p: (typeof featuredProjects)[number]) => `${p.status} · ${p.year}`;
@@ -108,6 +116,40 @@ export function DeskField() {
         >
           <div className="desk-field__paper" aria-hidden="true" />
 
+          {/* strings — lived-in workshop */}
+          <svg className="desk-strings" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="18" y1="28" x2="72" y2="22" />
+            <line x1="42" y1="78" x2="78" y2="68" />
+            <line x1="12" y1="58" x2="38" y2="72" />
+            <line x1="68" y1="42" x2="88" y2="48" />
+          </svg>
+
+          {/* lamp shadow + coffee ring */}
+          <div className="desk-lamp" aria-hidden="true" />
+          <div className="desk-coffee" aria-hidden="true" />
+
+          {/* sticky notes — hand */}
+          <div className="sticky-note sticky-note--1" style={{ left: "16%", top: "48%", transform: "rotate(-3deg)" }}>
+            <span>4th year · UNIBEN</span>
+            <strong>Materials &amp; Metallurgy</strong>
+            <p>systems → maths → docs</p>
+          </div>
+          <div className="sticky-note sticky-note--2" style={{ right: "22%", top: "10%", transform: "rotate(2deg)" }}>
+            <span>7HR4IZ3</span>
+            <strong>chess daily</strong>
+            <p>AntiChess: same pos, different brain</p>
+          </div>
+          <div className="sticky-note sticky-note--3" style={{ left: "52%", top: "8%", transform: "rotate(-1.5deg)" }}>
+            <span>M1 Air · 8GB · Silver</span>
+            <strong>ship it recoverable &gt; fast</strong>
+            <p className="crossed">fast &gt;&gt; recoverable</p>
+          </div>
+          <div className="sticky-note sticky-note--4" style={{ left: "48%", bottom: "42%", transform: "rotate(1deg)" }}>
+            <span>iPhone 11 · S21 Ultra</span>
+            <strong>phones get bench time</strong>
+            <p>local-first · offline-first</p>
+          </div>
+
           {featuredProjects.map((project, i) => {
             const place = placements[i % placements.length];
             const style: React.CSSProperties = {
@@ -120,7 +162,7 @@ export function DeskField() {
             return (
               <DeskPlate
                 key={project.slug}
-                href={`/work/${project.slug}`}
+                href={`#/work/${project.slug}`}
                 index={project.index}
                 title={project.title}
                 premise={project.premise}
@@ -128,11 +170,13 @@ export function DeskField() {
                 image={{ src: media.src, alt: media.alt }}
                 rotation={place.rotation}
                 style={style}
+                size={place.size}
+                tape={place.tape}
               />
             );
           })}
 
-          <ContactCard style={{ right: "18%", bottom: "8%" }} />
+          <ContactCard style={{ right: "16%", bottom: "6%", transform: "rotate(-1.2deg)" }} />
         </div>
       </div>
 

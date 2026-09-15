@@ -3,6 +3,7 @@ import { Caveat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { DeskEdge } from "@/components/desk-edge";
+import { HashPopupRouter } from "@/components/hash-popup-router";
 import { siteConfig } from "@/content/site";
 
 const recursive = localFont({
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body className={`${recursive.variable} ${hand.variable}`}>
         {children}
         <DeskEdge />
+        <HashPopupRouter />
       </body>
     </html>
   );
