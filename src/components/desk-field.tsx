@@ -40,23 +40,23 @@ export function DeskField() {
     return () => m.removeEventListener?.("change", onChange);
   }, []);
 
-  // keyboard pan
+  // keyboard pan — only when desk viewport is focused
   useEffect(() => {
     if (reduced) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key.startsWith("Arrow")) {
-        e.preventDefault();
-        const step = 20;
-        setOffset((o) => {
-          let nx = o.x;
-          let ny = o.y;
-          if (e.key === "ArrowLeft") nx += step;
-          if (e.key === "ArrowRight") nx -= step;
-          if (e.key === "ArrowUp") ny += step;
-          if (e.key === "ArrowDown") ny -= step;
-          return { x: Math.max(-80, Math.min(80, nx)), y: Math.max(-60, Math.min(60, ny)) };
-        });
-      }
+      if (!e.key.startsWith("Arrow")) return;
+      if (document.activeElement !== viewportRef.current) return;
+      e.preventDefault();
+      const step = 28;
+      setOffset((o) => {
+        let nx = o.x;
+        let ny = o.y;
+        if (e.key === "ArrowLeft") nx += step;
+        if (e.key === "ArrowRight") nx -= step;
+        if (e.key === "ArrowUp") ny += step;
+        if (e.key === "ArrowDown") ny -= step;
+        return { x: Math.max(-220, Math.min(220, nx)), y: Math.max(-160, Math.min(160, ny)) };
+      });
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -75,6 +75,7 @@ export function DeskField() {
     if (!drag.current.active || reduced) return;
     const dx = e.clientX - drag.current.startX;
     const dy = e.clientY - drag.current.startY;
+    if (Math.hypot(dx, dy) < 8) return;
     setOffset({
       x: Math.max(-220, Math.min(220, drag.current.originX + dx * 0.55)),
       y: Math.max(-160, Math.min(160, drag.current.originY + dy * 0.55)),
@@ -93,18 +94,6 @@ export function DeskField() {
         <span>THRAIZE — personal space</span>
         <span>six systems · one practice</span>
       </div>
-      <div className="desk-hero-sheet" style={{ left: "7%", top: "9%", transform: "rotate(-2deg)" }} aria-label="Intro">
-        <span className="desk-hero-sheet__tape" aria-hidden="true" />
-        <span className="desk-hero-sheet__stamp">THRAIZE 7HR4IZ3 — since 2023</span>
-        <h1>
-          I build software for ideas that do not fit a template.
-        </h1>
-        <p>
-          Mobile AI workspaces, parallel agents, spatial, native, chess, and bridges — all on one desk.{" "}
-          <span className="crossed">polished for strangers</span> inhabited for you.
-        </p>
-        <span className="desk-hero-sheet__hand">→ drag the desk, open a folder ↗</span>
-      </div>
 
       <div
         ref={viewportRef}
@@ -121,6 +110,19 @@ export function DeskField() {
           style={reduced ? undefined : { transform: `translate(${offset.x}px, ${offset.y}px)` }}
         >
           <div className="desk-field__paper" aria-hidden="true" />
+
+          <div className="desk-hero-sheet" style={{ left: "7%", top: "9%", transform: "rotate(-2deg)" }} aria-label="Intro">
+            <span className="desk-hero-sheet__tape" aria-hidden="true" />
+            <span className="desk-hero-sheet__stamp">THRAIZE 7HR4IZ3 — since 2023</span>
+            <h1>
+              I build software for ideas that do not fit a template.
+            </h1>
+            <p>
+              Mobile AI workspaces, parallel agents, spatial, native, chess, and bridges — all on one desk.{" "}
+              <span className="crossed">polished for strangers</span> inhabited for you.
+            </p>
+            <span className="desk-hero-sheet__hand">→ drag the desk, open a folder ↗</span>
+          </div>
 
           {/* strings — lived-in workshop */}
           <svg className="desk-strings" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
