@@ -124,12 +124,17 @@ export function DeskField() {
             <span className="desk-hero-sheet__hand">→ drag the desk, open a folder ↗</span>
           </div>
 
-          {/* strings — pinned thread hero to plates */}
+          {/* strings — thumbtacked thread hero to plates */}
           <svg className="desk-strings" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <line x1="18" y1="18" x2="16" y2="26" />
-            <line x1="22" y1="16" x2="76" y2="22" />
-            <line x1="44" y1="70" x2="70" y2="60" />
-            <line x1="10" y1="52" x2="30" y2="58" />
+            <line x1="15" y1="15" x2="14" y2="26" />
+            <line x1="16" y1="14" x2="74" y2="22" />
+            <line x1="42" y1="78" x2="74" y2="64" />
+            <line x1="12" y1="56" x2="32" y2="60" />
+            <circle cx="15" cy="15" r="0.9" fill="#8e2b11" />
+            <circle cx="14" cy="26" r="0.7" fill="#1b1b17" />
+            <circle cx="74" cy="22" r="0.7" fill="#1b1b17" />
+            <circle cx="42" cy="78" r="0.7" fill="#1b1b17" />
+            <circle cx="74" cy="64" r="0.7" fill="#1b1b17" />
           </svg>
 
           {/* lamp shadow + coffee ring */}
