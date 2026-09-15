@@ -929,7 +929,7 @@ body:has(.desk-field) { padding-bottom: 44px; }
   position: absolute;
   width: min(420px, 36vw);
   padding: 16px 14px 12px;
-  background: var(--paper-light);
+  background: #fffef7;
   border: 1.5px solid var(--ink);
   box-shadow: 6px 7px 0 rgba(27,27,23,.13);
   z-index: 4;
@@ -980,7 +980,8 @@ body:has(.desk-field) { padding-bottom: 44px; }
   margin-top: 10px;
   color: #8e2b11;
   font-family: var(--font-hand), cursive;
-  font-size: 13px;
+  font-size: 15px;
+  transform: rotate(-0.6deg);
 }
 .desk-plate {
   position: absolute;
@@ -1131,7 +1132,7 @@ body:has(.desk-field) { padding-bottom: 44px; }
 .folder__dl dt { color: var(--terracotta); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
 .folder__dl dd { font-size: 12px; line-height: 1.4; }
 .folder__jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-.folder__jump a { font-size: 11px; color: var(--ink-soft); border-bottom: 1px solid var(--ink-line); }
+.folder__jump a, .folder__jump button { font-size: 11px; color: var(--ink-soft); border: 0; border-bottom: 1px solid var(--ink-line); background: none; cursor: pointer; font: inherit; padding: 0; }
 .folder__links { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
 .folder__links a { font-size: 12px; font-weight: 700; border-bottom: 1px solid var(--ink); width: fit-content; }
 .folder__stack { padding: 28px 22px; display: flex; flex-direction: column; gap: 26px; }

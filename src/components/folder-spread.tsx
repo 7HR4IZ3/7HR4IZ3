@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { SystemDiagram } from "@/components/system-diagram";
@@ -38,10 +40,20 @@ export function FolderSpread({ project, nextSlug, nextTitle }: { project: Projec
               <div><dt>Systems</dt><dd>{project.domains.join(" · ")}</dd></div>
             </dl>
             <div className="folder__jump">
-              <a href="#evidence">Evidence</a>
-              <a href="#narrative">Narrative</a>
-              <a href="#proof">Proof</a>
-              <a href="#stack">Stack</a>
+              {[
+                ["evidence", "Evidence"],
+                ["narrative", "Narrative"],
+                ["proof", "Proof"],
+                ["stack", "Stack"],
+              ].map(([id, label]) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
             {project.links.length > 0 && (
               <div className="folder__links">
